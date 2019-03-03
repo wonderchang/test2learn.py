@@ -1,0 +1,14 @@
+<bookstore xmlns="http://my/ns">
+    <book>
+        <title>Harry Potter</title>
+        <author>J K. Rowling</author>
+        <year>2005</year>
+        <price>29.99</price>
+    </book>
+    <book>
+        <title>The Lord of the Rings</title>
+        <author>J. R. R. Tolkien</author>
+        <year>1954</year>
+        <price>100.00</price>
+    </book>
+</bookstore>
