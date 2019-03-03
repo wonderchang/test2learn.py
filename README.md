@@ -12,6 +12,10 @@ Run tests to learn
 
     make test
 
+Go to container inside to figure out something wrong if needed
+
+    make shell
+
 Clean artifects
 
     make clean
