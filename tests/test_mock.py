@@ -37,7 +37,7 @@ def test_assert_has_calls_and_mock_calls():
     assert str(err.value) == (
         'Calls not found.\n'
         'Expected: [call.one(), call.three()]\n'
-        'Actual: [call.one(), call.two(), call.three(), call.four()]'
+        '  Actual: [call.one(), call.two(), call.three(), call.four()]'
     )
 
 

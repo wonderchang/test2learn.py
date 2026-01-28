@@ -2,11 +2,11 @@
 name = "test2learn"
 version = "0.1.0"
 description = "A project for learning Python through tests"
-requires-python = ">=3.8"
+requires-python = ">=3.12"
 
 [dependency-groups]
 dev = [
-    "pytest==4.6.11",
+    "pytest>=8.0.0",
 ]
 
 [tool.pytest.ini_options]

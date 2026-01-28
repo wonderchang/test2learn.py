@@ -14,7 +14,7 @@ A collection of Python tests for learning and exploring Python standard library 
 ## Project Structure
 
 - `tests/` - Test files exploring Python behaviors
-- `pyproject.toml` - Project configuration (Python >=3.8, pytest 4.6.11)
+- `pyproject.toml` - Project configuration (Python >=3.12, pytest >=8.0.0)
 
 ## Conventions
 
