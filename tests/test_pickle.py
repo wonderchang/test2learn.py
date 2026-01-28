@@ -46,8 +46,8 @@ def test_dump_value_object_list_to_file_and_load_it__equivalent(tmpdir):
     assert vo_list == vo_list_from_pickle_file
 
 def test_protocal_version_constant():
-    assert pickle.DEFAULT_PROTOCOL == 3
-    assert pickle.HIGHEST_PROTOCOL == 4 # more efficiency
+    assert pickle.DEFAULT_PROTOCOL == 4
+    assert pickle.HIGHEST_PROTOCOL == 5  # more efficiency
 
 
 

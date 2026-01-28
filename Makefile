@@ -1,24 +1,13 @@
 TEST ?=
 
-workspace = $(PWD)
-image = test2learn-python
+.PHONY: sync test clean
 
-build:
-	docker build -t $(image) .
-
-define docker_run
-	docker run --rm --interactive --tty \
-		--volume $(workspace):/workspace \
-		--env PYTHONDONTWRITEBYTECODE=1 \
-		--env TEST=$(TEST) \
-		$(image) $(1)
-endef
-
-shell:
-	$(call docker_run,/bin/bash)
+sync:
+	uv sync
 
 test:
-	$(call docker_run,tox)
+	uv run pytest -vvv $(TEST)
 
 clean:
-	docker rmi -f $(image)
+	rm -rf .venv .pytest_cache
+	find . -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
