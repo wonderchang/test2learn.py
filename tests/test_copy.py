@@ -31,11 +31,11 @@ def test_dictionary_shallow_and_deep_copy(copy, shallow_compare, deep_compare):
 
     # shallow change
     clone['name'] = 'Foo Bar'
-    assert (clone['name'] == data['name']) == shallow_compare
+    assert (clone['name'] == data['name']) is shallow_compare
 
     # deep change
     clone['cards'].append('ghi789')
-    assert (clone['cards'] is data['cards']) == deep_compare
+    assert (clone['cards'] is data['cards']) is deep_compare
 
 @pytest.mark.parametrize('copy,shallow_compare,deep_compare', [
     (list,           False, True),   # shallow copy
@@ -53,11 +53,11 @@ def test_copy_list_copy(copy, shallow_compare, deep_compare):
 
     # shallow change
     clone.append(5)
-    assert (seq == clone) == shallow_compare
+    assert (seq == clone) is shallow_compare
 
     # deep change
     clone[0].append('d')
-    assert (seq[0] is clone[0]) == deep_compare
+    assert (seq[0] is clone[0]) is deep_compare
 
 @pytest.mark.parametrize('copy,shallow_compare,deep_compare', [
     (copy.copy,      False, True),   # shallow copy
@@ -78,11 +78,11 @@ def test_copy_object_copy(copy, shallow_compare, deep_compare):
 
     # shallow change
     clone.value += 1
-    assert (node.value == clone.value) == shallow_compare
+    assert (node.value == clone.value) is shallow_compare
 
     # deep change
     clone.children.append(Node(2))
-    assert (node.children is clone.children) == deep_compare
+    assert (node.children is clone.children) is deep_compare
 
 def test_deepcopy_memo():
     '''
