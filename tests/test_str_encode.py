@@ -52,5 +52,18 @@ def test_readfile_with_wrong_encoding():
 
     assert "'big5' codec can't decode byte 0x81 in position 2: illegal multibyte sequence" == str(err.value)
 
+@pytest.mark.parametrize("filename,encoding,expected", [
+    ("utf8_sample.txt", "utf8", "繁體中文。"),
+    ("big5_sample.txt", "big5", "big5繁體中文。"),
+    ("eucjp_sample.txt", "euc_jp", "eucjp日本語です。"),
+])
+def test_readfile_as_bytes_then_decode(filename, encoding, expected):
+    filepath = STR_ENCODE_DATA_DIR / filename
+    with open(filepath, 'rb') as fp:
+        data = fp.read()
+
+    assert isinstance(data, bytes)
+    assert expected in data.decode(encoding)
+
 
 # vi:et:ts=4:sw=4:cc=80
