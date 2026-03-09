@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 
 @pytest.fixture
 def bookstore():
-    return ET.parse('tests/xml/data/bookstore.xml').getroot()
+    return ET.parse('tests/data/xml/bookstore.xml').getroot()
 
 def test_namespace_findall(bookstore):
     ns = {'myns': 'http://my/ns'}
