@@ -1,4 +1,4 @@
-TEST ?=
+TEST ?= tests/
 
 .PHONY: sync test test-perf test-all clean
 
