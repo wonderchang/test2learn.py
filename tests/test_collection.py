@@ -2,17 +2,20 @@ import pytest
 
 from collections import namedtuple
 
+def test_tuple_immutable():
+    nums = (1, 2, 3)
 
-def test_namedtuple():
+    with pytest.raises(TypeError) as err:
+        nums[0] = 2
+
+    assert "'tuple' object does not support item assignment" == str(err.value)
+
+def test_namedtuple_immutable():
     Point = namedtuple('Point', ['x', 'y'])
     p = Point(x=11, y=22)
 
     assert p.x == 11
     assert p.y == 22
-
-def test_namedtuple_immutable():
-    Point = namedtuple('Point', ['x', 'y'])
-    p = Point(x=11, y=22)
 
     with pytest.raises(AttributeError) as err:
         p.x = 33
